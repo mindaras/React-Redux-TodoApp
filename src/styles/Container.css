@@ -1,0 +1,54 @@
+.container
+{
+  width: 400px;
+  height: 500px;
+  margin: 0 auto;
+  margin-top: 200px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 48px 24px rgba(0, 0, 0, 0.07);
+  overflow-x: hidden;
+  animation: movingShadow ease 2s infinite alternate;
+  position: relative;
+}
+.header
+{
+  height: 100px;
+  background: linear-gradient(to bottom right, #5f2c82, #49a09d);
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 24px;
+  letter-spacing: 0.3px;
+  border-radius: 8px 8px 0 0;
+  -webkit-background-size: 150%;
+  background-size: 150%;
+  animation: movingBg ease 15s infinite;
+}
+.add-button
+{
+  width: 60px;
+  height: 60px;
+  background-color: #49a09d;
+  color: #fff;
+  font-size: 24px;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  box-shadow: 0 0 14px 8px rgba(0, 0, 0, 0.07);
+  transition: ease .6s;
+  cursor: pointer;
+}
+.add-button:hover
+{
+  transform: scale(1.05);
+}
