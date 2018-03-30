@@ -66,19 +66,19 @@
 .todo-check
 {
   top: 0;
-  background-image: url('/images/check.png');
+  background-image: url('../images/check.png');
   transform: translate(-10px, -20px);
 }
 .todo-edit
 {
   top: 50%;
-  background-image: url('/images/edit.svg');
+  background-image: url('../images/edit.svg');
   transform: translate(-30px, -50%);
 }
 .todo-bin
 {
   bottom: 0;
-  background-image: url('/images/bin.jpeg');
+  background-image: url('../images/bin.jpeg');
   transform: translate(-10px, 20px);
 }
 @media screen and (min-width: 992px) {
