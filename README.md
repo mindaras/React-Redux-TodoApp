@@ -1,1 +1,5 @@
-A Todo App created with React and Redux (in progress).
+A Todo App built with React and Redux.
+
+You can try it here: https://mindaras.github.io/todoapp
+
+![Alt text](./screenshot.png)
