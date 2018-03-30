@@ -4,14 +4,14 @@ const initialState = {
   todos: [
     {
       id: 0,
-      time: '8:00',
+      time: '08:00',
       task: 'Exercise',
       img: './images/fist.png',
       state: false
     },
     {
       id: 1,
-      time: '8:30',
+      time: '08:30',
       task: 'Go to work',
       img: './images/work.png',
       state: false
@@ -39,20 +39,24 @@ function rootReducer(state = initialState, action) {
 
   switch (action.type) {
     case ADD_TODO:
+      let time, index, newTodo;
+
       newState = {...state};
       newState.currentId++;
-      return {
-        ...newState,
-        todos: [...newState.todos,
-          {
-            id: newState.currentId,
-            time: action.time,
-            task: action.task,
-            img: !action.img ? './images/fist.png' : action.img,
-            state: false
-          }
-        ]
-      };
+      time = parseInt(action.time.split(':').join(''));
+      // finding later todo index
+      index = newState.todos.findIndex(todo => parseInt(todo.time.split(':').join('')) > time);
+      newTodo = {id: newState.currentId,
+                     time: action.time,
+                     task: action.task,
+                     img: !action.img ? './images/fist.png' : action.img,
+                     state: false};
+
+      todos = newState.todos.slice();
+      // inserting before later todo or to the end if none was found
+      index !== -1 ? todos.splice(index, 0, newTodo) : todos.push(newTodo);
+
+      return {...newState, todos};
 
     case UPDATE_TODO:
       newState = {...state};
@@ -80,6 +84,9 @@ function rootReducer(state = initialState, action) {
         }
 
       });
+
+      // sort by time
+      todos.sort((a, b) => parseInt(a.time.split(':').join('')) > parseInt(b.time.split(':').join('')));
 
       return {...newState, todos};
 

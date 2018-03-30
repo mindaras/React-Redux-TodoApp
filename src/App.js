@@ -53,15 +53,19 @@ class App extends Component {
 
   handleAdd() {
     const {time, task, img} = this.state.form;
-    this.props.addTodo(time, task, img);
-    this.toggleForm();
+    if (time && task) {
+      this.props.addTodo(time, task, img);
+      this.toggleForm();
+    }
   }
 
   handleEdit() {
     const id = this.state.editId,
           {time, task, img} = this.state.form;
-    this.props.editTodo(id, time, task, img);
-    this.toggleForm();
+    if (time && task) {
+      this.props.editTodo(id, time, task, img);
+      this.toggleForm();
+    }
   }
 
   handleChange(name, val) {

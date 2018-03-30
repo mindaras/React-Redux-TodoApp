@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/Form.css';
+import Cleave from 'cleave.js/react';
 
 const Form = (props) => {
 
@@ -19,14 +20,18 @@ const Form = (props) => {
       <form className="form" onSubmit={handleSubmit} >
         <label className="form-label">
           Time:
-          <input name="time" type="text" className="form__input"
-                 value={props.time}
-                 autoComplete="off"
-                 onChange={inputChange} />
+          <Cleave name="time" maxLength="5" className="form__input"
+                  placeholder="Format: hh:mm"
+                  value={props.time}
+                  options={{numericOnly: true, delimiter: ':' , blocks: [2, 2]}}
+                  autoComplete="off"
+                  onChange={inputChange} />
         </label>
         <label className="form-label">
           Task:
           <input name="task" type="text" className="form__input"
+                 maxLength="25"
+                 placeholder="Short task"
                  value={props.task}
                  autoComplete="off"
                  onChange={inputChange} />

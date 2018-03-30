@@ -81,19 +81,37 @@
   background-image: url('/images/bin.jpeg');
   transform: translate(-10px, 20px);
 }
-.todo-item:hover .todo-check, .todo-item:hover .todo-edit, .todo-item:hover .todo-bin
+@media screen and (min-width: 992px) {
+  .todo-item:hover .todo-check, .todo-item:hover .todo-edit, .todo-item:hover .todo-bin
+  {
+    opacity: 1;
+  }
+  .todo-item:hover .todo-check
+  {
+    transform: translate(-20px, -30px);
+  }
+  .todo-item:hover .todo-edit
+  {
+    transform: translate(-40px, -50%);
+  }
+  .todo-item:hover .todo-bin
+  {
+    transform: translate(-20px, 30px);
+  }
+}
+.todo-item.show .todo-check, .todo-item.show .todo-edit, .todo-item.show .todo-bin
 {
   opacity: 1;
 }
-.todo-item:hover .todo-check
+.todo-item.show .todo-check
 {
   transform: translate(-20px, -30px);
 }
-.todo-item:hover .todo-edit
+.todo-item.show .todo-edit
 {
   transform: translate(-40px, -50%);
 }
-.todo-item:hover .todo-bin
+.todo-item.show .todo-bin
 {
   transform: translate(-20px, 30px);
 }
